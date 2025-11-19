@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:turbo="https://turbo.yandex.ru" version="2.0">
+  <channel>
+    <title>Тур/Трансфер — трансфер и экскурсии в Сочи</title>
+    <link>https://tourtransfer.ru</link>
+    <description>Комфортный трансфер из аэропорта Сочи и индивидуальные экскурсии по Черноморскому побережью</description>
+    <language>ru</language>
+
+    <!-- Главная страница -->
+    <item turbo="true">
+      <link>https://tourtransfer.ru/</link>
+      <turbo:source>https://tourtransfer.ru/</turbo:source>
+      <turbo:topic>Трансфер и экскурсии в Сочи</turbo:topic>
+      <pubDate>Wed, 19 Nov 2025 00:00:00 +0300</pubDate>
+      <author>Тур/Трансфер</author>
+      <turbo:content>
+        <![CDATA[
+          <header>
+            <h1>Трансфер из аэропорта Сочи и экскурсии по лучшим местам</h1>
+            <figure>
+              <img src="https://tourtransfer.ru/main-hero.webp" alt="Комфортный автомобиль для трансфера в Сочи"/>
+            </figure>
+            <menu>
+              <a href="https://tourtransfer.ru/">Главная</a>
+              <a href="https://tourtransfer.ru/transfer">Трансфер</a>
+              <a href="https://tourtransfer.ru/excursions">Экскурсии</a>
+              <a href="https://tourtransfer.ru/contacts">Контакты</a>
+            </menu>
+          </header>
+
+          <p>Индивидуальный трансфер из аэропорта Сочи (Адлер) от 1500 ₽. Опытный водитель, чистый комфортный автомобиль, встреча с табличкой.</p>
+          <p>Популярные экскурсии: Роза Хутор, Красная Поляна, Олимпийский парк, водопады, Абхазия и др.</p>
+
+          <figure>
+            <img src="https://tourtransfer.ru/photos/transfer-car.jpg" alt="Наш автомобиль"/>
+          </figure>
+
+          <!-- Кнопка обратной связи (обязательно для турбо!) -->
+          <div data-turbo-ad-id="R-A-123456-1"></div>
+          <form action="https://formspree.io/f/твой_ид" method="POST">
+            <input type="text" name="name" placeholder="Ваше имя" required="">
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required="">
+            <button type="submit">Заказать трансфер / экскурсию</button>
+          </form>
+        ]]>
+      </turbo:content>
+    </item>
+
+    <!-- Пример второй страницы (экскурсии) — добавь все основные страницы -->
+    <!-- <item turbo="true"> … </item> -->
+
+  </channel>
+</rss>

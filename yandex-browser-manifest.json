@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "api_version": 1,
+  "layout": {
+    "logo": "https://tourtransfer.ru/logo.png",
+    "display_name": "Тур/Трансфер Сочи",
+    "color": "#2563eb"
+  }
+}

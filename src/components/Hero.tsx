@@ -1,7 +1,7 @@
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 //import heroImage from "figma:asset/5090972e2fcd48bfa30f8942af83caafa7f7fb0e.png";
-import heroImage from '../assets/5090972e2fcd48bfa30f8942af83caafa7f7fb0e.png';
+import heroImage from '../assets/Фон Море.jpg';
 
 
 export function Hero() {
@@ -29,12 +29,14 @@ export function Hero() {
             <span className="text-blue-200">Комфортные поездки по городу</span>
           </div>
           
+          
           <h1 className="text-white mb-6">
-            Индивидуальный трансфер и экскурсии
-          </h1>
+  Трансфер из аэропорта Сочи<br />
+  <span className="text-white mb-6">и экскурсии в Абхазию</span>
+</h1>
           
           <p className="text-xl text-gray-200 mb-8">
-            Комфортабельный автомобиль бизнес-класса с профессиональным водителем. 
+            Комфортабельный автомобиль с профессиональным водителем. 
             Встретим в аэропорту, покажем город и доставим в любую точку.
           </p>
 

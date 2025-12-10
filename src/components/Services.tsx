@@ -9,7 +9,7 @@ export function Services() {
       icon: Plane,
       title: "Трансфер из/в аэропорт",
       description: "Встретим с табличкой, поможем с багажом и доставим в аэропорт или из аэропорта в любую точку города вовремя.",
-      image: "https://images.unsplash.com/photo-1736104761587-d9babea20923?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaXJwb3J0JTIwdHJhbnNmZXIlMjBjYXJ8ZW58MXx8fHwxNzYyMjUwNDE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "./images/Аэропорт.jpg",
       features: ["Встреча с табличкой", "Помощь с багажом", "Контроль рейса"],
       link: "/routes#transfer"
     },
@@ -17,7 +17,7 @@ export function Services() {
       icon: MapPin,
       title: "Индивидуальные экскурсии",
       description: "Покажем самые интересные места города по индивидуальному маршруту. Расскажем историю и покажем скрытые жемчужины.",
-      image: "https://images.unsplash.com/photo-1514315234814-ceafc3e7f19d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwdG91ciUyMGd1aWRlfGVufDF8fHx8MTc2MjI1ODMxNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "./images/Трамвай.jpg",
       features: ["Гибкий маршрут", "Интересный рассказ", "Остановки для фото"],
       link: "/routes#excursions"
     }
@@ -39,7 +39,10 @@ export function Services() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="relative h-48 overflow-hidden">
+
+              {/* Делаем картинку кликабельной */}
+             <a href={service.link} className="block relative h-48 overflow-hidden">
+             {/*  <div className="relative h-48 overflow-hidden">*/}
                 <ImageWithFallback
                   src={service.image}
                   alt={service.title}
@@ -48,9 +51,15 @@ export function Services() {
                 <div className="absolute top-4 left-4 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                   <service.icon className="w-6 h-6 text-white" />
                 </div>
-              </div>
+            {/*  </div>*/}
+            </a>
               <div className="p-6">
-                <h3 className="mb-3">{service.title}</h3>
+                <h3 className="mb-2 text-2xl font-bold text-gray-900">{service.title}</h3>
+{service.title === "Экскурсии" && (
+  <p className="text-lg font-medium text-blue-600 mb-4">
+    Сочи • Красная Поляна • Роза Хутор • <span className="underline decoration-2 decoration-blue-600">Абхазия</span>
+  </p>
+)}
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (

@@ -7,33 +7,27 @@ import { Testimonials } from "../components/Testimonials";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import { useEffect } from "react";
+import { SEO } from "../components/SEO";
 
-
-export default function HomePage() {
  
-  // Скролл к нужной секции, если в URL есть хэш (#services, #contact и т.д.)
-  useEffect(() => {
-    if (window.location.hash) {
-      const id = window.location.hash.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 150);
-      }
-    }
-  }, []);
-
+export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Трансфер из аэропорта Сочи → Красная Поляна, Адлер | Экскурсии в Абхазию"
+        description="Трансфер из аэропорта Сочи в Адлер, Красную Поляну, Роза Хутор от 1500 ₽. Экскурсии в Абхазию (озеро Рица, Гегский водопад), по Сочи и Красной Поляне. Встреча с табличкой, бизнес-класс."
+        ogImage="https://tourtransfer.ru/og-sochi-transfer.jpg"
+        canonical="https://tourtransfer.ru/"
+      />
+
       <Header />
       <main>
         <Hero />
-        <Services />     
-        <About />        
-        <Benefits />      
+        <Services />
+        <About />
+        <Benefits />
         <Testimonials />
-        <Contact />       
+        <Contact />
       </main>
       <Footer />
     </div>

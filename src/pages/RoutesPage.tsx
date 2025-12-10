@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "../components/ui/dialog";
 import { Toaster } from "../components/ui/sonner";
 import { CONTACTS } from "../config/contacts";
+import { SEO } from "../components/SEO";
 
 interface RouteImage {
   url: string;
@@ -204,9 +205,16 @@ export default function RoutesPage() {
   };
 
   return (
+
+    
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       <Header />
-      
+      <SEO
+        title="Экскурсии в Абхазию из Сочи 2025 | Озеро Рица, Гегский водопад, Новый Афон"
+        description="Индивидуальные экскурсии в Абхазию из Сочи и Адлера: озеро Рица, Гегский водопад, Новый Афон, Гагра. Также Красная Поляна и Роза Хутор. Цены от 6500 ₽ с человека. Комфортный трансфер, опытный гид."
+        ogImage="https://tourtransfer.ru/og-abkhazia.jpg"
+        canonical="https://tourtransfer.ru/excursions"
+      />
       {/* Hero section with image */}
       <div className="relative h-64 bg-gradient-to-r from-slate-700 to-slate-800 overflow-hidden">
         <div className="absolute inset-0 opacity-40">
@@ -228,7 +236,7 @@ export default function RoutesPage() {
           </p>
         </div>
       </div>
-      
+  
       <main className="pt-12 pb-12">
         <div className="container mx-auto px-4">
           <div className="mb-8">
@@ -241,7 +249,12 @@ export default function RoutesPage() {
           </div>
 
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="mb-4">Популярные маршруты</h2>
+            <h2 className="mb-4 text-4xl font-bold text-gray-900">
+  Индивидуальные экскурсии из Сочи в Абхазию и Красную Поляну
+</h2>
+<p className="text-xl text-gray-600 mb-8">
+  Комфортабельный автомобиль • Опытный водитель-гид • Доступные цены 
+</p>
             <p className="text-gray-600">
               Индивидуальные экскурсии на комфортабельном авто с опытным водителем-гидом
             </p>
@@ -295,7 +308,15 @@ export default function RoutesPage() {
                   </div>
 
                   <div className="md:col-span-3">
-                    <h2 className="mb-3">{route.title}</h2>
+                    <h2 className="mb-3 text-3xl font-bold text-gray-900">
+  {route.title.includes("Абхазия") ? (
+    <>Экскурсия в <span className="text-blue-600">Абхазию</span> из Сочи</>
+  ) : route.title.includes("Красная Поляна") ? (
+    <>Экскурсия на <span className="text-green-600">Красную Поляну</span> и Роза Хутор</>
+  ) : (
+    route.title
+  )}
+</h2>
                     <div className="flex gap-4 mb-4">
                       <div className="flex items-center gap-2 text-gray-600">
                         <Clock className="w-4 h-4" />

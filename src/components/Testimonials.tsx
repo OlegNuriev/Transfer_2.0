@@ -5,37 +5,37 @@ export function Testimonials() {
   const testimonials = [
     {
       name: "Алексей Михайлов",
-      avatar: "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      avatar: "/images/Men.jpg",
       text: "Отличный сервис! Водитель приехал вовремя, помог с багажом. Автомобиль чистый и комфортный. Обязательно обращусь снова!",
       initials: "АМ"
     },
     {
       name: "Мария Петрова",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      avatar: "/images/Girl.jpg",
       text: "Очень понравилась экскурсия! Водитель рассказал много интересного о городе и показал потрясающие места. Спасибо!",
       initials: "МП"
     },
     {
       name: "Дмитрий Соколов",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
+      avatar: "/images/Men2.jpg",
       text: "Пользуюсь услугами регулярно для поездок в аэропорт. Всегда надежно, комфортно и по адекватной цене. Рекомендую!",
       initials: "ДС"
     },
     {
       name: "Елена Васильева",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+      avatar: "/images/Girl1.jpg",
       text: "Замечательная поездка! Водитель очень приятный и профессиональный. Машина удобная, чистая. Всё на высшем уровне!",
       initials: "ЕВ"
     },
     {
       name: "Игорь Николаев",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      avatar: "/images/Men1.jpg",
       text: "Отличный трансфер из аэропорта! Встретили с табличкой, быстро доставили в отель. Очень доволен обслуживанием.",
       initials: "ИН"
     },
     {
       name: "Анна Смирнова",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop",
+      avatar: "/images/Girl2.jpg",
       text: "Спасибо за прекрасную экскурсию! Увидели много красивых мест, получили массу впечатлений. Всё было организовано отлично!",
       initials: "АС"
     }
@@ -58,7 +58,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
-                <Avatar className="w-12 h-12">
+                <Avatar className="w-12 h-12 shrink-0">
                   <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                   <AvatarFallback>{testimonial.initials}</AvatarFallback>
                 </Avatar>

@@ -1,3 +1,10 @@
+/* src/index.css */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* у тебя шапка высокая + запас */
+}
+
+/* остальной твой CSS ниже... */
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {

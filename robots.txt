@@ -1,11 +1,21 @@
 User-agent: *
+Allow: /
 Disallow: /admin
 Disallow: /private
+Disallow: /*?          # блокируем дубли с параметрами
+Allow: *.css$
+Allow: *.js$
+Allow: *.webp$
+Allow: *.jpg$
+Allow: *.png$
 
+# Яндекс
 User-agent: Yandex
+Allow: /
 Disallow: /admin
 Disallow: /private
-Crawl-delay: 2
+Disallow: /*?
+Host: tourtransfer.ru
 
-Host: https://tourtransfer.ru
+# Карта сайта
 Sitemap: https://tourtransfer.ru/sitemap.xml

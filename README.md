@@ -1,7 +1,9 @@
 
   # Сайт для трансферной компании
 
-  ## Running the code
+<<<<<<< HEAD
+ 
+>>>>>>> 9b19041 (Обновление сайта: СЕО)
 
   Run `npm i` to install the dependencies.
 

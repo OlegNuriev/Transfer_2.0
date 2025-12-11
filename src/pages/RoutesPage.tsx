@@ -10,6 +10,7 @@ import { Dialog, DialogContent } from "../components/ui/dialog";
 import { Toaster } from "../components/ui/sonner";
 import { CONTACTS } from "../config/contacts";
 import { SEO } from "../components/SEO";
+import { Link } from "react-router-dom";
 
 interface RouteImage {
   url: string;
@@ -240,12 +241,12 @@ export default function RoutesPage() {
       <main className="pt-12 pb-12">
         <div className="container mx-auto px-4">
           <div className="mb-8">
-            <a href="/">
+            <Link to="/">
               <Button variant="outline" className="group">
                 <ArrowLeft className="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 На главную
               </Button>
-            </a>
+            </Link>
           </div>
 
           <div className="text-center max-w-3xl mx-auto mb-12">

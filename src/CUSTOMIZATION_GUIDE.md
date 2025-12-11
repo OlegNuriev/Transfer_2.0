@@ -418,7 +418,7 @@ import { Shield, Users, Clock, Star, Car, Headphones, NewIcon } from "lucide-rea
 **Файл:** `/index.html` (строки 8-12)
 
 ```html
-<title>DriveComfort - Трансфер и Экскурсии | Сочи</title>  <!-- ← Заголовок сайта -->
+<title>Экскурсии - Трансфер и Экскурсии | Сочи</title>  <!-- ← Заголовок сайта -->
 <meta name="description" content="Комфортный трансфер...">   <!-- ← Описание -->
 <meta name="keywords" content="трансфер Сочи, экскурсии..."> <!-- ← Ключевые слова -->
 ```

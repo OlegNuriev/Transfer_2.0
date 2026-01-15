@@ -128,7 +128,7 @@ export function About() {
             </div>
 
             <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl max-w-xs">
-              <div className="text-3xl mb-1">15+</div>
+              <div className="text-3xl mb-1">20+</div>
               <div>лет безаварийного вождения</div>
             </div>
           </div>

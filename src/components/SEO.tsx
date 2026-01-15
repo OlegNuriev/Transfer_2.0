@@ -11,66 +11,82 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = "Трансфер и индивидуальные экскурсии | Черное море",
-  description = "Комфортабельный трансфер из/в аэропорт и индивидуальные экскурсии по побережью Черного моря. Опытный водитель с стажем 15+ лет. Бизнес-класс автомобиль. Работаем 24/7.",
-  keywords = "трансфер, экскурсии, черное море, аэропорт, индивидуальные экскурсии, комфортабельный автомобиль, водитель гид, побережье, Роза Хутор, горы",
+  title = "Трансфер из Сочи | Экскурсии в Абхазию и Красную Поляну 2025–2026",
+  description = "Комфортабельный трансфер из аэропорта Сочи в Красную Поляну, Роза Хутор, Адлер. Индивидуальные экскурсии в Абхазию от 6500 ₽: озеро Рица, Гегский водопад, Новый Афон. 24/7, фиксированные цены.",
+  keywords = "трансфер Сочи, экскурсии Абхазия из Сочи, Красная Поляна трансфер, такси аэропорт Сочи, экскурсия Абхазия 2025, Роза Хутор",
   ogTitle,
   ogDescription,
-  ogImage = "https://images.unsplash.com/photo-1560706834-97a5cdf62110?w=1200&h=630&fit=crop",
-  canonical
+  ogImage = "https://tourtransfer.ru/og-sochi-transfer.jpg", 
+  canonical,
 }: SEOProps) {
   useEffect(() => {
-    // Update title
+    // ── Title ────────────────────────────────────────
     document.title = title;
 
-    // Update or create meta tags
-    const updateMetaTag = (name: string, content: string, isProperty = false) => {
-      const attribute = isProperty ? 'property' : 'name';
-      let element = document.querySelector(`meta[${attribute}="${name}"]`);
-      
-      if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute(attribute, name);
-        document.head.appendChild(element);
+    // ── Helper для meta-тегов ────────────────────────
+    const setMeta = (name: string, content: string, isProperty = false) => {
+      const attr = isProperty ? "property" : "name";
+      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement;
+
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
       }
-      
-      element.setAttribute('content', content);
+
+      el.content = content;
     };
 
-    // Basic meta tags
-    updateMetaTag('description', description);
-    updateMetaTag('keywords', keywords);
+    const removeMeta = (name: string, isProperty = false) => {
+      const attr = isProperty ? "property" : "name";
+      const el = document.querySelector(`meta[${attr}="${name}"]`);
+      if (el) el.remove();
+    };
 
-    // Open Graph tags
-    updateMetaTag('og:title', ogTitle || title, true);
-    updateMetaTag('og:description', ogDescription || description, true);
-    updateMetaTag('og:image', ogImage, true);
-    updateMetaTag('og:type', 'website', true);
+    // ── Основные meta ────────────────────────────────
+    setMeta("description", description);
+    setMeta("keywords", keywords);
 
-    // Twitter Card tags
-    updateMetaTag('twitter:card', 'summary_large_image');
-    updateMetaTag('twitter:title', ogTitle || title);
-    updateMetaTag('twitter:description', ogDescription || description);
-    updateMetaTag('twitter:image', ogImage);
+    // Open Graph
+    setMeta("og:title", ogTitle || title, true);
+    setMeta("og:description", ogDescription || description, true);
+    setMeta("og:image", ogImage, true);
+    setMeta("og:type", "website", true);
+    setMeta("og:url", window.location.href, true);
+    setMeta("og:locale", "ru_RU", true);
 
-    // Additional SEO tags
-    updateMetaTag('robots', 'index, follow');
-    updateMetaTag('author', 'Тур/Трансфер');
-    updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
+    // Twitter / X Cards
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", ogTitle || title);
+    setMeta("twitter:description", ogDescription || description);
+    setMeta("twitter:image", ogImage);
+    // setMeta("twitter:site", "@твой_аккаунт");  
 
-    // Canonical link
+    // Дополнительные полезные теги
+    setMeta("robots", "index, follow");
+    setMeta("referrer", "strict-origin-when-cross-origin");
+    setMeta("author", "Тур/Трансфер");          
+
+    // Canonical
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (canonical) {
-      let linkElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (!linkElement) {
-        linkElement = document.createElement('link');
-        linkElement.setAttribute('rel', 'canonical');
-        document.head.appendChild(linkElement);
+      if (!canonicalLink) {
+        canonicalLink = document.createElement("link");
+        canonicalLink.rel = "canonical";
+        document.head.appendChild(canonicalLink);
       }
-      linkElement.href = canonical;
+      canonicalLink.href = canonical;
+    } else if (canonicalLink) {
+      canonicalLink.remove();
     }
 
-    // Language
-    document.documentElement.lang = 'ru';
+    // ── Cleanup при размонтировании / смене ─────────
+    return () => {
+      
+      removeMeta("og:url", true);
+      removeMeta("og:locale", true);
+      
+    };
   }, [title, description, keywords, ogTitle, ogDescription, ogImage, canonical]);
 
   return null;

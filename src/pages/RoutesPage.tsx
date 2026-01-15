@@ -5,12 +5,13 @@ import { Card } from "../components/ui/card";
 import { ArrowLeft, Clock, MapPin, Phone, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { TelegramIcon, WhatsAppIcon, MaxIcon } from "../components/MessengerIcons";
 import { ImageWithFallback } from "../components/plug/ImageWithFallback";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent } from "../components/ui/dialog";
 import { Toaster } from "../components/ui/sonner";
 import { CONTACTS } from "../config/contacts";
 import { SEO } from "../components/SEO";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 interface RouteImage {
   url: string;
@@ -63,9 +64,8 @@ export default function RoutesPage() {
       ],
       price: "от 5 000"
     },
-
-{
-    id: "abkhazia",
+    {
+      id: "abkhazia",
     title: "Экскурсия в Абхазию (Гагра, озеро Рица)",
     duration: "8-12 часов",
     distance: "300 км",
@@ -205,8 +205,31 @@ export default function RoutesPage() {
     }
   };
 
-  return (
+const location = useLocation();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (location.hash) {
+        const id = location.hash.substring(1);
+        const element = document.getElementById(id);
+
+        if (element) {
+          const offset = 100; // ← настрой под высоту Header (проверь в браузере)
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 150); // небольшая задержка для SPA
+
+    return () => clearTimeout(timer);
+  }, [location.hash, location.pathname]); // ← важно! реагируем на смену хэша и пути
+
+  return (
     
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       <Header />
